@@ -26,17 +26,17 @@ function startResources() {
     }], 5)
     initBuilding('stone miner', [{
         name: 'brick',
-        count: 20
+        count: 1
     }], [{
         name: 'stone',
-        count: -1
+        count: 1
     }], 5)
     initBuilding('coal miner', [{
         name: 'brick',
         count: 20
     }], [{
         name: 'coal',
-        count: -1
+        count: 1
     }], 5)
 }
 

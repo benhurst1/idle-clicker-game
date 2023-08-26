@@ -22,8 +22,8 @@ class Building extends Item {
     }
 }
 
-function initBuilding(name, require, produce, consume, craftSpeed) {
-    const item = new Building(name, require, produce, consume, craftSpeed)
+function initBuilding(name, require, produce, craftSpeed) {
+    const item = new Building(name, require, produce, craftSpeed)
     resources.push(item)
     item.createButton()
     item.producer()
