@@ -1,12 +1,32 @@
-import resources from "./resources"
+import {resources, Item} from "./itemClass"
 
-class Building {
-    constructor(name){
-        this.name = name
+class Building extends Item {
+    constructor(name, require, produce, craftSpeed) {
+        super(name, require)
+        this.produce = produce
+        this.craftSpeed = craftSpeed
     }
 
-    process(consume, produce) {
-        console.log
-        resources
+    producer() {
+        if (this.count > 0) {
+            this.produce.forEach(element => {
+            let item = resources.find(({name}) => name == element.name)
+            if (item.checkBuild()) {
+                item.buildItem()
+            }
+        });
+        setTimeout(() => {this.producer()}, 1000 / this.count * this.craftSpeed);
+        } else {
+            setTimeout(() => {this.producer()}, 1000);
+        }
     }
 }
+
+function initBuilding(name, require, produce, consume, craftSpeed) {
+    const item = new Building(name, require, produce, consume, craftSpeed)
+    resources.push(item)
+    item.createButton()
+    item.producer()
+}
+
+export default initBuilding
