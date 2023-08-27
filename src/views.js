@@ -19,17 +19,6 @@ function addButtonView(element) {
     button.textContent = element.name
     number.textContent = element.count
 
-    //if building, add dropdown with options to build
-    if (element.produce) {
-        const select = document.createElement('select')
-        resource.appendChild(select)
-        element.produce.forEach(piece => {
-            let option = document.createElement('option')
-            option.textContent = piece.name
-            select.appendChild(option)
-        });
-    }
-
     element.require.forEach(piece => {
         let name = document.createElement('p')
         name.textContent = `${piece.count} ${piece.name}`

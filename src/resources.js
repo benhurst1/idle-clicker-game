@@ -16,7 +16,7 @@ function startResources() {
     initResource('brick', add([{'stone': 1},{'coal': 1}]), low)
     initResource('iron ore', [], raw)
     // initBuilding('stone furnace', add([{'stone'}]))
-    initBuilding('miner', add([{'brick': 5}]), building, add([{'stone': 1},{'coal': 1}]), 5)
+    initBuilding('stone miner', add([{'brick': 5}]), building, add([{'stone': 1}]), 5)
 }
 
 function add(object) {
