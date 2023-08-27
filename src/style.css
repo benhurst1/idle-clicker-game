@@ -2,24 +2,63 @@
     margin:0px;
 }
 
+#content {
+    height: 100vh;
+}
+
+#info {
+    background-color: chocolate;
+    height: 100px;
+}
+
+#playing-area {
+    height:100%;
+    background-color: brown;
+}
+
+.tabs {
+    gap:2px;
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    background-color: chocolate;
+}
+
+.tabs .active{
+    background-color: grey
+}
+
+.tab {
+    border-radius: 5px 5px 0px 0px;
+    font-size: 18px;
+    color: antiquewhite;
+    border: none;
+    height:30px;
+    width: 80px;
+    background-color: black
+}
+
+.tab:hover {
+    cursor: pointer;
+}
+
 .tab-panes .tab-pane{
     display: none
 }
 .tab-panes .active{
-    display: block
+    padding: 20px 50px;
+    background-color: grey;
+    align-items: start;
+    gap:10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    display: flex
 }
 
-#resources {
-    margin: 50px;
-    width:100%;
-    /* gap:20px; */
-    flex-wrap: wrap;
-    flex-direction: row;
-    display: flex;
-}
 
 .resource {
-    gap:5px;
+    color: antiquewhite;
+    gap:10px;
     align-items: center;
     font-size: 25px;
     flex-direction: row;
@@ -27,7 +66,14 @@
 }
 
 .resource button {
+    /* align-content: start; */
+    text-align: left;
     font-size: 15px;
-    height: 30px;
+    height: 50px;
     width:150px;
+}
+
+.resource button p {
+    text-align: right;
+    font-size: 10px;
 }

@@ -5,7 +5,7 @@ function addButtonView(element) {
     const resource = document.createElement('div')
     resource.setAttribute('id', element.name)
     resource.setAttribute('class', 'resource')
-
+    
     const button = document.createElement('button')
     button.setAttribute('id', `${element.name}-button`)
 
@@ -16,8 +16,13 @@ function addButtonView(element) {
     button.textContent = element.name
     number.textContent = element.count
 
+    element.require.forEach(piece => {
+        let name = document.createElement('p')
+        name.textContent = `${piece.count} ${piece.name}`
+        button.appendChild(name)
+    });
+
     const resourceTab = document.getElementById(element.category)
-    console.log(resourceTab)
     resourceTab.appendChild(resource)
     return button
 }
