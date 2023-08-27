@@ -1,0 +1,33 @@
+* {
+    margin:0px;
+}
+
+.tab-panes .tab-pane{
+    display: none
+}
+.tab-panes .active{
+    display: block
+}
+
+#resources {
+    margin: 50px;
+    width:100%;
+    /* gap:20px; */
+    flex-wrap: wrap;
+    flex-direction: row;
+    display: flex;
+}
+
+.resource {
+    gap:5px;
+    align-items: center;
+    font-size: 25px;
+    flex-direction: row;
+    display: flex;
+}
+
+.resource button {
+    font-size: 15px;
+    height: 30px;
+    width:150px;
+}

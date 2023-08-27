@@ -1,14 +1,15 @@
 import {addButtonView, updateResourceView} from './views'
 
 class Item {
-    constructor(name, require) {
+    constructor(name, require, category) {
         this.name = name
         this.count = 0
         this.require = require
+        this.category = category
     }
 
     createButton() {
-        const button = addButtonView(this.name)
+        const button = addButtonView(this)
         button.addEventListener('click', () => {
             if (this.require.length == 0) {
                 this.buildItem()
@@ -47,8 +48,8 @@ class Item {
 
 const resources = []
 
-function initResource(name, require) {
-    const item = new Item(name, require)
+function initResource(name, require, category) {
+    const item = new Item(name, require, category)
     resources.push(item)
     item.createButton()
 }

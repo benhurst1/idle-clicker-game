@@ -1,35 +1,37 @@
-import { resources } from "./itemClass"
-
 const resourceDiv = document.getElementById('resources')
-const building = document.getElementById('building')
 
-function startResourceView() {
-    resources.forEach(element => {
-        const resource = document.createElement('div')
-        resource.setAttribute('id', element.name)
-        const name = document.createElement('p')
-        const number = document.createElement('p')
+function addButtonView(element) {
+    //create resource view area, add button, text and number
+    const resource = document.createElement('div')
+    resource.setAttribute('id', element.name)
+    resource.setAttribute('class', 'resource')
 
-        resource.appendChild(name)
-        resource.appendChild(number)
-        name.textContent = element.name
-        number.textContent = element.count
+    const button = document.createElement('button')
+    button.setAttribute('id', `${element.name}-button`)
 
-        resourceDiv.appendChild(resource)
-    });
+    const number = document.createElement('p')
+
+    resource.appendChild(number)
+    resource.appendChild(button)
+    button.textContent = element.name
+    number.textContent = element.count
+
+    const resourceTab = document.getElementById(element.category)
+    console.log(resourceTab)
+    resourceTab.appendChild(resource)
+    return button
 }
 
 function updateResourceView(item) {
     const resource = document.getElementById(item.name)
-    resource.childNodes[1].textContent = item.count
+    resource.childNodes[0].textContent = item.count
 }
 
-function addButtonView(name) {
-    const button = document.createElement('button')
-    button.textContent = name
-    button.id = `${name}-button`
-    building.appendChild(button)
-    return button
+
+function navBar() {
+    //using tabs package
+    var container=document.querySelector('.tab-container')
+    tabs(container);
 }
 
-export {addButtonView, updateResourceView, startResourceView}
+export {addButtonView, updateResourceView, navBar}

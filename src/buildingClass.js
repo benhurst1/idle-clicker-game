@@ -1,8 +1,8 @@
 import {resources, Item} from "./itemClass"
 
 class Building extends Item {
-    constructor(name, require, produce, craftSpeed) {
-        super(name, require)
+    constructor(name, require, category, produce, craftSpeed) {
+        super(name, require, category)
         this.produce = produce
         this.craftSpeed = craftSpeed
     }
@@ -22,11 +22,11 @@ class Building extends Item {
     }
 }
 
-function initBuilding(name, require, produce, craftSpeed) {
-    const item = new Building(name, require, produce, craftSpeed)
+function initBuilding(name, require, category, produce, craftSpeed) {
+    const item = new Building(name, require, category, produce, craftSpeed)
     resources.push(item)
-    item.createButton()
     item.producer()
+    item.createButton()
 }
 
 export default initBuilding
