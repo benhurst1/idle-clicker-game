@@ -7,6 +7,8 @@ const high = 'higher-intermediates'
 const science = 'science'
 const building = 'buildings'
 
+//initresource ( name of item, function(array of objects required to build), category of tab)
+//initbuilding ( same as above, then function(array of objects that is produced), time it takes to produce)
 function startResources() {
     initResource('wood', [], raw)
     initResource('stone', [], raw)
@@ -14,7 +16,7 @@ function startResources() {
     initResource('brick', add([{'stone': 1},{'coal': 1}]), low)
     initResource('iron ore', [], raw)
     // initBuilding('stone furnace', add([{'stone'}]))
-    initBuilding('stone miner', add([{'brick': 5}]), building, add([{'stone': 1}]), 5)
+    initBuilding('miner', add([{'brick': 5}]), building, add([{'stone': 1},{'coal': 1}]), 5)
 }
 
 function add(object) {

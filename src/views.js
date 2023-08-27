@@ -1,13 +1,16 @@
 const resourceDiv = document.getElementById('resources')
 
 function addButtonView(element) {
-    //create resource view area, add button, text and number
+    //create resource view area
     const resource = document.createElement('div')
     resource.setAttribute('id', element.name)
     resource.setAttribute('class', 'resource')
     
+    //add button
     const button = document.createElement('button')
     button.setAttribute('id', `${element.name}-button`)
+
+
 
     const number = document.createElement('p')
 
@@ -16,12 +19,23 @@ function addButtonView(element) {
     button.textContent = element.name
     number.textContent = element.count
 
+    //if building, add dropdown with options to build
+    if (element.produce) {
+        const select = document.createElement('select')
+        resource.appendChild(select)
+        element.produce.forEach(piece => {
+            let option = document.createElement('option')
+            option.textContent = piece.name
+            select.appendChild(option)
+        });
+    }
+
     element.require.forEach(piece => {
         let name = document.createElement('p')
         name.textContent = `${piece.count} ${piece.name}`
         button.appendChild(name)
     });
-
+    
     const resourceTab = document.getElementById(element.category)
     resourceTab.appendChild(resource)
     return button
