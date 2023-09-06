@@ -1,4 +1,3 @@
-import { startGame } from "./controller";
-import './style.css'
+import { createItems } from "./items";
 
-startGame()
+createItems();
