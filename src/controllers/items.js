@@ -1,9 +1,10 @@
 import { buttonView, updateButtonView } from "../views/button.js";
 
 export class Item {
-  constructor(name) {
+  constructor(name, category) {
     this.name = name;
     this.count = 0;
+    this.category = category;
   }
 
   createButton() {
@@ -18,12 +19,17 @@ export class Item {
   }
 }
 
-const rawItems = [["stone"], ["iron-ore"], ["copper-ore"]];
+const rawItems = [
+  ["stone", "raw"],
+  ["iron-ore", "raw"],
+  ["copper-ore", "raw"],
+  ["brick", "processed"],
+];
 
 const items = [];
 export function createItems() {
   rawItems.forEach((element) => {
-    const item = new Item(element[0]);
+    const item = new Item(element[0], element[1]);
     items.push(item);
     item.createButton();
   });

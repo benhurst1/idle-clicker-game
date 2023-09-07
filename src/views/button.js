@@ -1,5 +1,3 @@
-const content = document.getElementById("content");
-
 export function buttonView(item) {
   const button = document.createElement("button");
 
@@ -14,7 +12,9 @@ export function buttonView(item) {
   dialog.textContent = "Hello!";
 
   button.append(number, name, dialog);
-  content.append(button);
+  const section = document.getElementById(item.category);
+  section.append(button);
+
   return button;
 }
 
