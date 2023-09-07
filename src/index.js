@@ -1,3 +1,4 @@
-import { createItems } from "./items";
+import "./style.css";
+import { createItems } from "./controllers/items";
 
 createItems();
