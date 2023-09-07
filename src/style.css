@@ -10,24 +10,29 @@ button {
   width: 100px;
 }
 
+/* tooltip on hover */
 button:hover {
   cursor: pointer;
 }
+button:active {
+  background-color: rgb(241, 241, 241);
+}
+
 button .tooltiptext {
   visibility: hidden;
   width: 120px;
-  background-color: black;
-  color: #fff;
+  background-color: rgb(32, 32, 32);
+  color: #ededed;
   text-align: center;
-  padding: 5px 0;
+  padding: 5px 5px;
   border-radius: 6px;
 
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
+  position: relative;
   z-index: 1;
+  top: -5px;
+  left: 80px;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
 button:hover .tooltiptext {
   visibility: visible;
 }
