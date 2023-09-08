@@ -10,27 +10,63 @@ export class Item {
 
   createButton() {
     const button = buttonView(this);
-    button.addEventListener("click", (e) => this.add());
+    button.addEventListener("click", (e) => this.check());
   }
 
   add() {
     this.count += 1;
-    console.log(this.count);
     updateButtonView(this);
+  }
+
+  check() {
+    let length = this.require.length;
+    if (length == 0) {
+      this.add();
+    } else {
+      this.require.forEach((requireElement) => {
+        const item = items.find(
+          (element) => element.name == requireElement.name
+        );
+        if (item.count >= requireElement.count) {
+          length -= 1;
+        }
+      });
+      if (length == 0) {
+        this.require.forEach((requireElement) => {
+          const item = items.find(
+            (element) => element.name == requireElement.name
+          );
+
+          item.count -= requireElement.count;
+          updateButtonView(item);
+        });
+        this.add();
+      }
+    }
   }
 }
 
 const rawItems = [
-  ["stone", "raw"],
-  ["iron-ore", "raw"],
-  ["copper-ore", "raw"],
-  ["brick", "processed", [addRequire(["stone", 1])]],
+  ["stone", "raw", []],
+  ["iron-ore", "raw", []],
+  ["copper-ore", "raw", []],
+  ["coal", "raw", []],
+  [
+    "brick",
+    "processed",
+    addRequire([
+      ["stone", 1],
+      ["coal", 1],
+    ]),
+  ],
 ];
 
 function addRequire(array) {
+  const items = [];
   array.forEach((element) => {
-    console.log(element);
+    items.push({ name: element[0], count: element[1] });
   });
+  return items;
 }
 
 const items = [];
